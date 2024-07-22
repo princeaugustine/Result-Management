@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Results</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+
+            padding: 15px;
+        }
+
+        .menu {
+            width: 40%;
+            float: left;
+            padding: 15px;
+
+        }
+
+        .main {
+            width: 60%;
+            float: left;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header" style="background-color: black;">
+
+        <header>
+            <h1 style="color: white; text-align: center;">Results Management System</h1>
+        </header>
+    </div>
+
+    <div class="menu">
+        <button>
+            <a th:href="@{/listStudents}" style="text-decoration: none;">View Students</a>
+        </button>
+    </div>
+
+    <div class="main">
+
+
+        <h1>Results for <span th:text="${student.fullname}"></span></h1>
+
+        <div th:each="result : ${results}">
+            <p><strong>PHYSICS:</strong> <span th:text="${result.physics}"></span></p>
+            <p><strong>CHEMISTRY:</strong> <span th:text="${result.chemistry}"></span></p>
+            <p><strong>MATHEMATICS:</strong> <span th:text="${result.mathematics}"></span></p>
+            <p><strong>UPDATED ON:</strong> <span th:text="${result.date}"></span></p>
+            <p>
+                <button>
+                    <a style="text-decoration: none"
+                       th:href="@{/students/results/edit(candidate=${result.candidate}, date=${result.date})}">EDIT</a>
+                </button>
+            </p>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+</html>

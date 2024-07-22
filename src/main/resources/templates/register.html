@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register Students</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+
+            padding: 15px;
+        }
+
+        .main {
+            width: 60%;
+            float: left;
+            padding: 15px;
+
+        }
+
+        .menu {
+            width: 40%;
+            float: left;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header" style="background-color: black;">
+
+        <header>
+            <h1 style="color: white; text-align: center;">Results Management System</h1>
+        </header>
+    </div>
+
+    <div class="menu">
+
+    </div>
+
+    <div class="main">
+        <h1>Register new student</h1>
+        <div th:if="${errorMessage}" style="color: red;">
+            <p th:text="${errorMessage}"></p>
+        </div>
+        <form action="/addStudent" method="post">
+            <label>FULL NAME:</label><br>
+            <input type="text" name="fullname" placeholder="Enter full name" required><br><br>
+            <label>PHONE NUMBER:</label><br>
+            <input type="text" name="parentphone" placeholder="Enter parent phone number" required><br><br>
+            <label>CANDIDATE NUMBER:</label><br>
+            <input type="text" name="candidate" placeholder="Enter candidate number" required><br><br>
+            <label>STUDENT PASSWORD:</label><br>
+            <input type="password" name="password" placeholder="Enter password" required><br><br>
+            <input type="submit" value="REGISTER">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

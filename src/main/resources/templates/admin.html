@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+
+            padding: 15px;
+        }
+
+        .main {
+            width: 60%;
+            float: left;
+            padding: 15px;
+
+        }
+
+        .menu {
+            width: 40%;
+            float: left;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header" style="background-color: black;">
+
+        <header>
+            <h1 style="color: white; text-align: center;">Results Management System</h1>
+        </header>
+    </div>
+    <div class="menu">
+
+    </div>
+    <div class="main">
+        <div th:if="${errorMessage}" style="color: red;">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <form action="/adminLogin" method="post">
+            <label>USERNAME: </label><br>
+            <input type="text" name="username" placeholder="Enter your username"><br><br>
+            <label>PASSWORD: </label><br>
+            <input type="password" name="password" placeholder="Enter password"><br><br>
+            <input type="submit" value="LOGIN">
+        </form>
+    </div>
+</div>
+</body>
+</html>

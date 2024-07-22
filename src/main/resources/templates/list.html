@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registered Students</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+
+            padding: 15px;
+        }
+
+        .menu {
+            width: 25%;
+            float: left;
+            padding: 15px;
+
+        }
+
+        .main {
+            width: 75%;
+            float: left;
+            padding: 15px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header" style="background-color: black;">
+
+        <header>
+            <h1 style="color: white; text-align: center;">Results Management System</h1>
+        </header>
+    </div>
+    <div class="menu">
+        <button>
+            <a th:href="@{/}" style="text-decoration: none;">Add Students</a>
+        </button>
+    </div>
+
+    <div class="main">
+
+        <h1>Registered Students</h1>
+
+        <table border="1">
+            <tr>
+                <th>FULL NAME</th>
+                <th>PARENT PHONE NUMBER</th>
+                <th>CANDIDATE</th>
+                <th>VIEW</th>
+            </tr>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.fullname}"></td>
+                <td th:text="${student.parentphone}"></td>
+                <td th:text="${student.candidate}"></td>
+                <td>
+                    <button>
+                        <a style="text-decoration: none;" th:href="@{/students/view(candidate=${student.candidate})}">VIEW</a>
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+</body>
+</html>
